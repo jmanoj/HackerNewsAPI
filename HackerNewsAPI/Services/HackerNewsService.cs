@@ -23,7 +23,7 @@ public class HackerNewsService : IHackerNewsService
         return hackerNewsItems.ToList();
     }
 
-    private async Task<List<int>> GetHackerNewsIdsAsync()
+    public async Task<List<int>> GetHackerNewsIdsAsync()
     {
         HttpResponseMessage response = await _httpClient.GetAsync(_baseUrl + Endpoints.AskStories);
 
@@ -39,7 +39,7 @@ public class HackerNewsService : IHackerNewsService
         }
     }
 
-    private async Task<HackerNewsItem> GetHackerNewsItemsByIdsAsync(int itemId)
+    public async Task<HackerNewsItem> GetHackerNewsItemsByIdsAsync(int itemId)
     {
         HttpResponseMessage response = await _httpClient.GetAsync($"{_baseUrl}item/{itemId}.json");
 
